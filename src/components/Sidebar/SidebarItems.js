@@ -20,10 +20,10 @@ export const sidebarItems = [
         title: "Session 03 — Getting Started with jQuery",
         path: "/sessions/session-03",
       },
-      // {
-      //   title: "Session 04 — Mastering jQuery Techniques",
-      //   path: "/sessions/session-04",
-      // },
+      {
+        title: "Session 04 — Mastering jQuery Techniques",
+        path: "/sessions/session-04",
+      },
       // {
       //   title: "Session 05 — Designing Responsive Web Pages",
       //   path: "/sessions/session-05",
