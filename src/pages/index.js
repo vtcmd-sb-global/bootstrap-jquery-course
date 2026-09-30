@@ -17,6 +17,26 @@ export default function Home() {
 
 
 
+
+// import React from 'react';
+// import Layout from '@theme/Layout';
+// import CustomLayout from '@site/src/components/Layout/Layout';
+// import Homepage from '@site/src/components/Homepage/home';
+
+// export default function Home() {
+//   return (
+//     <Layout
+//       title="Bootstrap & jQuery Course Guide"
+//       description="Bootstrap and jQuery course from beginner to advanced">
+//       <CustomLayout>
+//         <Homepage />
+//       </CustomLayout>
+//     </Layout>
+//   );
+// }
+
+
+
 // import React from 'react';
 // import Layout from '@theme/Layout';
 // import CustomLayout from '@site/src/components/Layout/Layout';
