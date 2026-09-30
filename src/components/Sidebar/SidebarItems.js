@@ -24,10 +24,10 @@ export const sidebarItems = [
         title: "Session 04 — Mastering jQuery Techniques",
         path: "/sessions/session-04",
       },
-      // {
-      //   title: "Session 05 — Designing Responsive Web Pages",
-      //   path: "/sessions/session-05",
-      // },
+      {
+        title: "Session 05 — Designing Responsive Web Pages",
+        path: "/sessions/session-05",
+      },
       // {
       //   title: "Session 06 — Integrating and Enhancing with Bootstrap and jQuery",
       //   path: "/sessions/session-06",
