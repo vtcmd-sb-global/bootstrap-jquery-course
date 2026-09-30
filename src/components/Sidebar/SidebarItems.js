@@ -10,11 +10,12 @@ export const sidebarItems = [
         title: "Session 01 — Fundamentals of Bootstrap",
         path: "/sessions/session-01",
       },
+      
       // Uncomment these when you create the other session pages
-      // {
-      //   title: "Session 02 — Building Blocks with Bootstrap Components",
-      //   path: "/sessions/session-02",
-      // },
+      {
+        title: "Session 02 — Building Blocks with Bootstrap Components",
+        path: "/sessions/session-02",
+      },
       // {
       //   title: "Session 03 — Getting Started with jQuery",
       //   path: "/sessions/session-03",
