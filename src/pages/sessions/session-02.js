@@ -1,20 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session02() {
-  const codeBlockStyle = {
-    backgroundColor: '#1e1e1e',
-    color: '#d4d4d4',
-    padding: '12px 16px',
-    borderRadius: '6px',
-    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    fontSize: '0.9rem',
-    overflowX: 'auto',
-    lineHeight: '1.5',
-    margin: '12px 0 24px 0'
-  };
-
   return (
     <Layout
       title="Session 02 — Building Blocks with Bootstrap Components"
@@ -106,8 +95,9 @@ export default function Session02() {
 
           <h3>Basic Buttons</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<button class="btn btn-primary">Primary</button>
+          <CodeBlock
+              language="html"
+            code={`<button class="btn btn-primary">Primary</button>
 <button class="btn btn-secondary">Secondary</button>
 <button class="btn btn-success">Success</button>
 <button class="btn btn-danger">Danger</button>
@@ -115,31 +105,34 @@ export default function Session02() {
 <button class="btn btn-info">Info</button>
 <button class="btn btn-light">Light</button>
 <button class="btn btn-dark">Dark</button>
-<button class="btn btn-link">Link</button>`}</code>
-          </pre>
+<button class="btn btn-link">Link</button>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Outline Buttons</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<button class="btn btn-outline-primary">Primary</button>
+          <CodeBlock
+            language="html"
+            code={`<button class="btn btn-outline-primary">Primary</button>
 <button class="btn btn-outline-success">Success</button>
-<button class="btn btn-outline-danger">Danger</button>`}</code>
-          </pre>
+<button class="btn btn-outline-danger">Danger</button>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Button Sizes</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<button class="btn btn-primary btn-lg">Large button</button>
+          <CodeBlock
+  language="html"
+            code={`<button class="btn btn-primary btn-lg">Large button</button>
 <button class="btn btn-primary">Default button</button>
-<button class="btn btn-primary btn-sm">Small button</button>`}</code>
-          </pre>
+<button class="btn btn-primary btn-sm">Small button</button>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Disabled Buttons</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<button class="btn btn-primary" disabled>Disabled button</button>
-<a href="#" class="btn btn-secondary disabled">Disabled link</a>`}</code>
-          </pre>
+          <CodeBlock
+  language="html"
+            code={`<button class="btn btn-primary" disabled>Disabled button</button>
+<a href="#" class="btn btn-secondary disabled">Disabled link</a>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -150,8 +143,9 @@ export default function Session02() {
             product information, blog posts, user profiles, etc.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="card" style="width: 18rem;">
+          <CodeBlock
+              language="html"
+            code={`<div class="card" style="width: 18rem;">
   <img src="https://via.placeholder.com/286x180" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
@@ -160,13 +154,14 @@ export default function Session02() {
     </p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Card with Header and Footer</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="card">
+          <CodeBlock
+  language="html"
+            code={`<div class="card">
   <div class="card-header">
     Featured
   </div>
@@ -178,8 +173,8 @@ export default function Session02() {
   <div class="card-footer text-muted">
     2 days ago
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -191,8 +186,9 @@ export default function Session02() {
             The navbar is one of the most important components for any website.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <CodeBlock
+  language="html"
+            code={`<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MyWebsite</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -215,13 +211,14 @@ export default function Session02() {
       </ul>
     </div>
   </div>
-</nav>`}</code>
-          </pre>
+</nav>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Navs and Tabs</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<ul class="nav nav-tabs">
+          <CodeBlock
+  language="html"
+            code={`<ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#">Active</a>
   </li>
@@ -234,8 +231,8 @@ export default function Session02() {
   <li class="nav-item">
     <a class="nav-link disabled">Disabled</a>
   </li>
-</ul>`}</code>
-          </pre>
+</ul>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -245,8 +242,9 @@ export default function Session02() {
             Bootstrap makes form styling very easy and consistent.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<form>
+          <CodeBlock
+  language="html"
+            code={`<form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
@@ -263,21 +261,22 @@ export default function Session02() {
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>`}</code>
-          </pre>
+</form>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Form Controls – Select &amp; Textarea</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<select class="form-select">
+          <CodeBlock
+  language="html"
+            code={`<select class="form-select">
   <option selected>Open this select menu</option>
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
 </select>
 
-<textarea class="form-control" rows="3" placeholder="Leave a comment here"></textarea>`}</code>
-          </pre>
+<textarea class="form-control" rows="3" placeholder="Leave a comment here"></textarea>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -285,8 +284,9 @@ export default function Session02() {
 
           <h3>Alerts</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="alert alert-primary" role="alert">
+          <CodeBlock
+  language="html"
+            code={`<div class="alert alert-primary" role="alert">
   A simple primary alert—check it out!
 </div>
 <div class="alert alert-success" role="alert">
@@ -294,28 +294,30 @@ export default function Session02() {
 </div>
 <div class="alert alert-danger" role="alert">
   A simple danger alert—check it out!
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Badges</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<h1>Example heading <span class="badge bg-secondary">New</span></h1>
+          <CodeBlock
+  language="html"
+            code={`<h1>Example heading <span class="badge bg-secondary">New</span></h1>
 <button type="button" class="btn btn-primary">
   Notifications <span class="badge text-bg-secondary">4</span>
-</button>`}</code>
-          </pre>
+</button>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Useful Typography Classes</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<p class="lead">This is a lead paragraph. It stands out.</p>
+          <CodeBlock
+  language="html"
+            code={`<p class="lead">This is a lead paragraph. It stands out.</p>
 <p class="text-muted">Muted text</p>
 <p class="fw-bold">Bold text</p>
 <p class="fst-italic">Italic text</p>
 <p class="text-center">Centered text</p>
-<p class="text-uppercase">Uppercase text</p>`}</code>
-          </pre>
+<p class="text-uppercase">Uppercase text</p>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -325,8 +327,9 @@ export default function Session02() {
             Bootstrap provides helpful classes for images and media.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Responsive image -->
+          <CodeBlock
+  language="html"
+            code={`<!-- Responsive image -->
 <img src="..." class="img-fluid" alt="Responsive image">
 
 <!-- Rounded image -->
@@ -336,8 +339,8 @@ export default function Session02() {
 <img src="..." class="rounded-circle" alt="...">
 
 <!-- Thumbnail -->
-<img src="..." class="img-thumbnail" alt="...">`}</code>
-          </pre>
+<img src="..." class="img-thumbnail" alt="...">`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -347,8 +350,9 @@ export default function Session02() {
             Let’s combine several components to create a small product section.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container my-5">
+          <CodeBlock
+  language="html"
+            code={`<div class="container my-5">
   <h2 class="text-center mb-4">Our Products</h2>
 
   <div class="row g-4">
@@ -397,8 +401,8 @@ export default function Session02() {
       </div>
     </div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
