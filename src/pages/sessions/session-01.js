@@ -1,29 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session01() {
-  const codeBlockStyle = {
-    backgroundColor: '#1e1e1e',
-    color: '#d4d4d4',
-    padding: '12px 16px',
-    borderRadius: '6px',
-    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    fontSize: '0.9rem',
-    overflowX: 'auto',
-    lineHeight: '1.5',
-    margin: '12px 0 24px 0'
-  };
-
-  const inlineCodeStyle = {
-    backgroundColor: '#f4f4f4',
-    color: '#d10057',
-    padding: '2px 6px',
-    borderRadius: '4px',
-    fontFamily: 'Consolas, Monaco, monospace',
-    fontSize: '0.9em'
-  };
-
   return (
     <Layout
       title="Session 01 — Fundamentals of Bootstrap"
@@ -173,8 +153,9 @@ export default function Session01() {
             The fastest way to start is by linking Bootstrap from a Content Delivery Network (CDN).
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+              language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -191,8 +172,8 @@ export default function Session01() {
   <!-- Bootstrap JS Bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Method 2: Local Installation (Download)</h3>
 
@@ -200,31 +181,34 @@ export default function Session01() {
             Download the compiled CSS and JS files from the official website and place them in your project folder.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Local CSS -->
+          <CodeBlock
+            language="html"
+            code={`<!-- Local CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Local JS -->
-<script src="js/bootstrap.bundle.min.js"></script>`}</code>
-          </pre>
+<script src="js/bootstrap.bundle.min.js"></script>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Method 3: Using npm / yarn (for modern projects)</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`npm install bootstrap
+          <CodeBlock
+            language="html"
+            code={`npm install bootstrap
 # or
-yarn add bootstrap`}</code>
-          </pre>
+yarn add bootstrap`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <p>
             Then import it in your main CSS or JS file:
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// In your main JS file
+          <CodeBlock
+            language="html"
+            code={`// In your main JS file
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
-          </pre>
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -234,8 +218,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             Every Bootstrap page should follow this basic structure:
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+            language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -253,8 +238,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Important Meta Tag</h3>
 
@@ -262,9 +247,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             Always include the viewport meta tag. Without it, Bootstrap’s responsive features will not work properly on mobile devices.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<meta name="viewport" content="width=device-width, initial-scale=1.0">`}</code>
-          </pre>
+          <CodeBlock
+            language="html"
+            code={`<meta name="viewport" content="width=device-width, initial-scale=1.0">`}
+            caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -285,15 +271,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
 
           <h3>Basic Grid Structure</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container">
+          <CodeBlock
+              language="html"
+            code={`<div class="container">
   <div class="row">
     <div class="col">Column 1</div>
     <div class="col">Column 2</div>
     <div class="col">Column 3</div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <p>
             The three columns above will each take equal width (4 units out of 12).
@@ -341,14 +328,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             You can specify column widths using numbers from 1 to 12.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container">
+          <CodeBlock
+              language="html"
+            code={`<div class="container">
   <div class="row">
     <div class="col-8">This column takes 8 units</div>
     <div class="col-4">This column takes 4 units</div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -409,8 +397,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
 
           <h3>Responsive Example</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container">
+          <CodeBlock
+            language="html"
+            code={`<div class="container">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4">
       <!-- Full width on mobile, half on tablet, one-third on desktop -->
@@ -423,8 +412,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
       Box 3
     </div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -436,8 +425,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             You can place a row inside a column to create nested layouts.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container">
+          <CodeBlock
+            language="html"
+            code={`<div class="container">
   <div class="row">
     <div class="col-md-8">
       Main Content
@@ -450,8 +440,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
       Sidebar
     </div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Column Ordering</h3>
 
@@ -459,12 +449,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             Use order classes to change the visual order of columns without changing the HTML order.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="row">
+          <CodeBlock
+            language="html"
+            code={`<div class="row">
   <div class="col-md-6 order-md-2">This appears second on medium screens</div>
   <div class="col-md-6 order-md-1">This appears first on medium screens</div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -474,8 +465,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
             Let’s create a simple three-column layout that stacks on mobile and displays side-by-side on larger screens.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+            language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -514,8 +506,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}</code>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
