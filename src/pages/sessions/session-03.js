@@ -1,20 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session03() {
-  const codeBlockStyle = {
-    backgroundColor: '#1e1e1e',
-    color: '#d4d4d4',
-    padding: '12px 16px',
-    borderRadius: '6px',
-    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    fontSize: '0.9rem',
-    overflowX: 'auto',
-    lineHeight: '1.5',
-    margin: '12px 0 24px 0'
-  };
-
   return (
     <Layout
       title="Session 03 — Getting Started with jQuery"
@@ -109,8 +98,9 @@ export default function Session03() {
 
           <h3>Method 1: Using CDN (Recommended for beginners)</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+              language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -128,8 +118,8 @@ export default function Session03() {
     // Your jQuery code will go here
   </script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Method 2: Local File</h3>
 
@@ -137,15 +127,17 @@ export default function Session03() {
             Download jQuery from the official website and place the file in your project.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<script src="js/jquery-3.7.1.min.js"></script>`}</code>
-          </pre>
+          <CodeBlock
+  language="html"
+            code={`<script src="js/jquery-3.7.1.min.js"></script>`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <h3>Method 3: Using npm</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`npm install jquery`}</code>
-          </pre>
+          <CodeBlock
+  language="node"
+            code={`npm install jquery`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -155,9 +147,10 @@ export default function Session03() {
             The basic jQuery syntax is:
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$(selector).action();`}</code>
-          </pre>
+          <CodeBlock
+            language="node"
+            code={`$(selector).action();`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <ul>
             <li><code>$</code> → the jQuery object (shortcut for <code>jQuery</code>)</li>
@@ -171,16 +164,17 @@ export default function Session03() {
             Always wait until the HTML document is fully loaded before running jQuery code.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$(document).ready(function() {
+          <CodeBlock
+  language="javascript"
+            code={`$(document).ready(function() {
   // Your code here
 });
 
 // Shorter version (most common)
 $(function() {
   // Your code here
-});`}</code>
-          </pre>
+});`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -231,8 +225,9 @@ $(function() {
 
           <h3>Examples</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Select by ID
+          <CodeBlock
+  language="javascript"
+            code={`// Select by ID
 $("#title").text("New Title");
 
 // Select by class
@@ -245,8 +240,8 @@ $("p").hide();
 $("p:first").css("color", "red");
 
 // Select last list item
-$("li:last").addClass("highlight");`}</code>
-          </pre>
+$("li:last").addClass("highlight");`}
+caption="Interactive preview: switch between themes to see the same  snippet restyled."/>
 
           <hr />
 
@@ -300,8 +295,9 @@ $("li:last").addClass("highlight");`}</code>
 
           <h3>Event Examples</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$(function() {
+          <CodeBlock
+  language="javascript"
+            code={`$(function() {
 
   // Click event
   $("#btn").click(function() {
@@ -323,8 +319,8 @@ $("li:last").addClass("highlight");`}</code>
     alert("Form submitted!");
   });
 
-});`}</code>
-          </pre>
+});`}
+caption="Interactive preview: switch between themes to see the same C# snippet restyled."/>
 
           <hr />
 
@@ -336,8 +332,9 @@ $("li:last").addClass("highlight");`}</code>
 
           <h3>Content Methods</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Get text
+          <CodeBlock
+  language="javascript"
+            code={`// Get text
 let text = $("#title").text();
 
 // Set text
@@ -351,13 +348,14 @@ $("#content").html("<strong>Bold text</strong>");
 
 // Get / Set value of input
 let name = $("#name").val();
-$("#name").val("John Doe");`}</code>
-          </pre>
+$("#name").val("John Doe");`}
+caption="Interactive preview: switch between themes to see the same C# snippet restyled."/>
 
           <h3>CSS &amp; Class Methods</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Change CSS
+          <CodeBlock
+  language="css"
+            code={`// Change CSS
 $("p").css("color", "blue");
 $("p").css({
   "color": "blue",
@@ -368,26 +366,28 @@ $("p").css({
 // Add / Remove / Toggle class
 $("div").addClass("highlight");
 $("div").removeClass("highlight");
-$("div").toggleClass("highlight");`}</code>
-          </pre>
+$("div").toggleClass("highlight");`}
+caption="Interactive preview: switch between themes to see the same C# snippet restyled."/>
 
           <h3>Show / Hide</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$("#box").hide();          // hide immediately
+          <CodeBlock
+  language="javascript"
+            code={`$("#box").hide();          // hide immediately
 $("#box").show();          // show immediately
 $("#box").toggle();        // toggle visibility
 
 $("#box").hide(500);       // hide with animation (500ms)
-$("#box").show("slow");    // show slowly`}</code>
-          </pre>
+$("#box").show("slow");    // show slowly`}
+caption="Interactive preview: switch between themes to see the same C# snippet restyled."/>
 
           <hr />
 
           <h2>7. Practical Example – Interactive Button</h2>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+  language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -440,8 +440,8 @@ $("#box").show("slow");    // show slowly`}</code>
     });
   </script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same C# snippet restyled."/>
 
           <hr />
 
