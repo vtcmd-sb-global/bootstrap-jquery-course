@@ -8,8 +8,13 @@ import php from "react-syntax-highlighter/dist/cjs/languages/prism/php";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import markup from "react-syntax-highlighter/dist/cjs/languages/prism/markup";   // HTML
 import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
-import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml-doc";
+//import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml-doc";
+import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
+import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
+import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
+import vbnet from "react-syntax-highlighter/dist/cjs/languages/prism/vbnet";
 
 // Register languages
 SyntaxHighlighter.registerLanguage("csharp", csharp);
@@ -22,6 +27,18 @@ SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("js", javascript);
 SyntaxHighlighter.registerLanguage("xml", xml);
 SyntaxHighlighter.registerLanguage("json", json);
+SyntaxHighlighter.registerLanguage("jsx", jsx);
+SyntaxHighlighter.registerLanguage("tsx", tsx);
+SyntaxHighlighter.registerLanguage("typescript", typescript);
+SyntaxHighlighter.registerLanguage("ts", typescript);
+SyntaxHighlighter.registerLanguage("jquery", javascript);
+SyntaxHighlighter.registerLanguage("node", javascript);
+SyntaxHighlighter.registerLanguage("nodejs", javascript);
+SyntaxHighlighter.registerLanguage("electron", javascript);
+SyntaxHighlighter.registerLanguage("mysql", sql);
+SyntaxHighlighter.registerLanguage("linq", csharp);
+SyntaxHighlighter.registerLanguage("vbnet", vbnet);
+
 
 // ======================================================
 // Themes – designed to feel close to real editors
@@ -214,9 +231,27 @@ export default function CodeBlock({
 
   const selected = themes[theme];
 
-  // Normalize some common language aliases
-  const lang = language === "html" ? "markup" : language;
+  // Normalize language aliases
+  const languageAliases = {
+    html: "markup",
+    xml: "xml",
+    js: "javascript",
+    jquery: "jquery",
+    nodejs: "nodejs",
+    node: "node",
+    electron: "electron",
+    react: "jsx",
+    reactjs: "jsx",
+    ts: "typescript",
+    "react-ts": "tsx",
+    "typescript-react": "tsx",
+    mysql: "mysql",
+    linq: "linq",
+  };
 
+  const normalizedLanguage = language.toLowerCase();
+  const lang = languageAliases[normalizedLanguage] || normalizedLanguage;
+  
   return (
     <section
       className={`guide-code guide-code--${theme}`}
