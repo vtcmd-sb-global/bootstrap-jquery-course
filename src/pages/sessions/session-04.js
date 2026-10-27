@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '../../components/CodeBlock';
 
 export default function Session04() {
   const codeBlockStyle = {
@@ -75,8 +76,9 @@ export default function Session04() {
 
           <h3>Hiding and Showing Elements</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Hide
+          <CodeBlock
+          language="jquery"
+            code={`// Hide
 $("#box").hide();           // instant
 $("#box").hide(500);        // 500 milliseconds
 $("#box").hide("slow");     // slow animation
@@ -88,25 +90,27 @@ $("#box").show(800);
 
 // Toggle (hide if visible, show if hidden)
 $("#box").toggle();
-$("#box").toggle(600);`}</code>
-          </pre>
+$("#box").toggle(600);`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Fading Effects</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$("#box").fadeIn();         // fade in
+          <CodeBlock
+          language="jquery"
+            code={`$("#box").fadeIn();         // fade in
 $("#box").fadeOut();        // fade out
 $("#box").fadeToggle();     // toggle fade
-$("#box").fadeTo(1000, 0.4); // fade to 40% opacity over 1 second`}</code>
-          </pre>
+$("#box").fadeTo(1000, 0.4); // fade to 40% opacity over 1 second`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Sliding Effects</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$("#panel").slideDown();    // slide down
+          <CodeBlock
+          language="jquery"
+            code={`$("#panel").slideDown();    // slide down
 $("#panel").slideUp();      // slide up
-$("#panel").slideToggle();  // toggle slide`}</code>
-          </pre>
+$("#panel").slideToggle();  // toggle slide`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Custom Animation – animate()</h3>
 
