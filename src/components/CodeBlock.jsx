@@ -9,7 +9,8 @@ import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import markup from "react-syntax-highlighter/dist/cjs/languages/prism/markup";   // HTML
 import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 //import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml-doc";
-import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml";
+//import xml from "react-syntax-highlighter/dist/cjs/languages/prism/xml";
+import xml from "react-syntax-highlighter/dist/cjs/languages/prism/markup";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
