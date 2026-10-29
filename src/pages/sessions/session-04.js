@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
-import CodeBlock from '../../components/CodeBlock';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session04() {
   
@@ -104,8 +104,9 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <h3>Custom Animation – animate()</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$("#box").animate({
+          <CodeBlock
+            language="jquery"
+            code={`$("#box").animate({
   left: '250px',
   opacity: '0.5',
   height: '150px',
@@ -116,8 +117,8 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 $("#box")
   .animate({ left: '200px' }, 800)
   .animate({ top: '100px' }, 800)
-  .animate({ opacity: 0.3 }, 500);`}</code>
-          </pre>
+  .animate({ opacity: 0.3 }, 500);`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -125,8 +126,9 @@ $("#box")
 
           <h3>Creating and Adding Elements</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Create a new element
+          <CodeBlock
+            language="jquery"
+            code={`// Create a new element
 let newPara = $("<p>This is a new paragraph</p>");
 
 // Append (inside, at the end)
@@ -140,26 +142,28 @@ $("#container").prepend("<h3>New Heading</h3>");
 $("#box").after("<p>Inserted after the box</p>");
 
 // Before (outside, before the element)
-$("#box").before("<p>Inserted before the box</p>");`}</code>
-          </pre>
+$("#box").before("<p>Inserted before the box</p>");`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Removing Elements</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Remove the element itself
+          <CodeBlock
+            language="jquery"
+            code={`// Remove the element itself
 $("#box").remove();
 
 // Remove only the children (keep the element)
 $("#container").empty();
 
 // Remove elements that match a filter
-$("p").remove(".highlight");`}</code>
-          </pre>
+$("p").remove(".highlight");`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Working with Attributes</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Get attribute
+          <CodeBlock
+            language="jquery"
+            code={`// Get attribute
 let src = $("img").attr("src");
 
 // Set attribute
@@ -174,21 +178,22 @@ $("img").attr({
 });
 
 // Remove attribute
-$("img").removeAttr("title");`}</code>
-          </pre>
+$("img").removeAttr("title");`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Working with Classes</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$("#box").addClass("active highlight");
+          <CodeBlock
+            language="jquery"
+            code={`$("#box").addClass("active highlight");
 $("#box").removeClass("highlight");
 $("#box").toggleClass("active");
 
 // Check if element has a class
 if ($("#box").hasClass("active")) {
   console.log("Box is active");
-}`}</code>
-          </pre>
+}`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -198,8 +203,9 @@ if ($("#box").hasClass("active")) {
             jQuery makes it easy to move through the DOM tree.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// Parent
+          <CodeBlock
+            language="jquery"
+            code={`// Parent
 $("#child").parent();           // direct parent
 $("#child").parents();          // all ancestors
 $("#child").parentsUntil("div");
@@ -220,8 +226,8 @@ $("p").first();
 $("p").last();
 $("p").eq(2);                   // third paragraph (index starts at 0)
 $("p").filter(".intro");
-$("p").not(".intro");`}</code>
-          </pre>
+$("p").not(".intro");`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -241,8 +247,9 @@ $("p").not(".intro");`}</code>
             <li>Initialize the plugin on the desired element</li>
           </ol>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Example structure -->
+          <CodeBlock
+            language="jquery"
+            code={`<!-- Example structure -->
 <script src="jquery.min.js"></script>
 <link rel="stylesheet" href="plugin.css">
 <script src="plugin.min.js"></script>
@@ -255,8 +262,8 @@ $("p").not(".intro");`}</code>
       option2: value2
     });
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Popular Plugin Categories</h3>
 
@@ -292,8 +299,9 @@ $("p").not(".intro");`}</code>
 
           <h3>Basic Example – Datepicker</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Include jQuery + jQuery UI -->
+          <CodeBlock
+            language="jquery"
+            code={`<!-- Include jQuery + jQuery UI -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -304,13 +312,14 @@ $("p").not(".intro");`}</code>
   $(function() {
     $("#datepicker").datepicker();
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Basic Example – Accordion</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div id="accordion">
+          <CodeBlock
+            language="jquery"
+            code={`<div id="accordion">
   <h3>Section 1</h3>
   <div>
     <p>Content for section 1</p>
@@ -329,15 +338,16 @@ $("p").not(".intro");`}</code>
   $(function() {
     $("#accordion").accordion();
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
           <h2>6. Practical Example – Animated FAQ + Theme Toggle</h2>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+            language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -411,8 +421,8 @@ $("p").not(".intro");`}</code>
     });
   </script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
