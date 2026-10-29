@@ -1,20 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session06() {
-  const codeBlockStyle = {
-    backgroundColor: '#1e1e1e',
-    color: '#d4d4d4',
-    padding: '12px 16px',
-    borderRadius: '6px',
-    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    fontSize: '0.9rem',
-    overflowX: 'auto',
-    lineHeight: '1.5',
-    margin: '12px 0 24px 0'
-  };
-
   return (
     <Layout
       title="Session 06 — Integrating and Enhancing with Bootstrap and jQuery"
@@ -92,8 +81,9 @@ export default function Session06() {
 
           <h3>Example 1 – Toggle a Bootstrap Alert</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div id="successAlert" class="alert alert-success alert-dismissible fade" role="alert">
+          <CodeBlock
+              language="html"
+            code={`<div id="successAlert" class="alert alert-success alert-dismissible fade" role="alert">
   <strong>Success!</strong> Your message has been sent.
   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
@@ -106,25 +96,27 @@ export default function Session06() {
       $("#successAlert").addClass("show");
     });
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Example 2 – Smooth Scroll to Sections</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`$(".nav-link").click(function(e) {
+          <CodeBlock
+            language="jquery"
+            code{`$(".nav-link").click(function(e) {
   e.preventDefault();
   let target = $(this).attr("href");
   $("html, body").animate({
     scrollTop: $(target).offset().top - 70
   }, 600);
-});`}</code>
-          </pre>
+});`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Example 3 – Dynamic Card Filtering</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// HTML: cards with data-category attribute
+          <CodeBlock
+            language="jquery"
+            code={`// HTML: cards with data-category attribute
 // <div class="card" data-category="web">...</div>
 
 $(".filter-btn").click(function() {
@@ -139,8 +131,8 @@ $(".filter-btn").click(function() {
 
   $(".filter-btn").removeClass("active");
   $(this).addClass("active");
-});`}</code>
-          </pre>
+});`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -150,8 +142,9 @@ $(".filter-btn").click(function() {
             Bootstrap provides nice form styles. jQuery can add real-time validation.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<form id="contactForm" class="needs-validation" novalidate>
+          <CodeBlock
+            language="html"
+            code={`<form id="contactForm" class="needs-validation" novalidate>
   <div class="mb-3">
     <label class="form-label">Name</label>
     <input type="text" class="form-control" id="name" required>
@@ -199,15 +192,16 @@ $(".filter-btn").click(function() {
       }
     });
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
           <h2>4. Working with Bootstrap Modals using jQuery</h2>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Button trigger -->
+          <CodeBlock
+            language="html"
+            code={`<!-- Button trigger -->
 <button class="btn btn-primary" id="openModalBtn">Open Modal</button>
 
 <!-- Modal -->
@@ -235,8 +229,8 @@ $(".filter-btn").click(function() {
       myModal.show();
     });
   });
-</script>`}</code>
-          </pre>
+</script>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -258,15 +252,16 @@ $(".filter-btn").click(function() {
 
           <h3>Example – Using a Simple Lightbox Plugin Idea</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`// When an image with class "gallery-img" is clicked
+          <CodeBlock
+            language="jquery"
+            code={`// When an image with class "gallery-img" is clicked
 $(".gallery-img").click(function() {
   let src = $(this).attr("src");
   $("#lightboxImage").attr("src", src);
   let lightbox = new bootstrap.Modal(document.getElementById("lightboxModal"));
   lightbox.show();
-});`}</code>
-          </pre>
+});`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -286,8 +281,9 @@ $(".gallery-img").click(function() {
 
           <h2>7. Complete Practical Example – Interactive Product Filter Page</h2>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!DOCTYPE html>
+          <CodeBlock
+            language="html"
+            code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -397,8 +393,8 @@ $(".gallery-img").click(function() {
     });
   </script>
 </body>
-</html>`}</code>
-          </pre>
+</html>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
