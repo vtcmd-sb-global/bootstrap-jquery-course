@@ -239,21 +239,23 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <h3>Responsive Images</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Always use img-fluid for responsive images -->
+          <CodeBlock
+            language="html"
+            code={`<!-- Always use img-fluid for responsive images -->
 <img src="photo.jpg" class="img-fluid" alt="Description">
 
 <!-- Image with rounded corners -->
 <img src="photo.jpg" class="img-fluid rounded" alt="...">
 
 <!-- Thumbnail style -->
-<img src="photo.jpg" class="img-thumbnail" alt="...">`}</code>
-          </pre>
+<img src="photo.jpg" class="img-thumbnail" alt="...">`}
+          caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Responsive Embeds (Videos / Maps)</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="ratio ratio-16x9">
+          <CodeBlock
+            language="html"
+            code={`<div class="ratio ratio-16x9">
   <iframe 
     src="https://www.youtube.com/embed/VIDEO_ID" 
     title="YouTube video" 
@@ -262,18 +264,19 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 </div>
 
 <!-- Other ratios available -->
-<!-- ratio-1x1, ratio-4x3, ratio-21x9 -->`}</code>
-          </pre>
+<!-- ratio-1x1, ratio-4x3, ratio-21x9 -->`}
+          caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Picture Element (Art Direction)</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<picture>
+          <CodeBlock
+            language="html"
+            code={`<picture>
   <source media="(min-width: 992px)" srcset="large.jpg">
   <source media="(min-width: 768px)" srcset="medium.jpg">
   <img src="small.jpg" class="img-fluid" alt="Responsive image">
-</picture>`}</code>
-          </pre>
+</picture>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -283,8 +286,9 @@ caption="Interactive preview: switch between themes to see the same snippet rest
             A good responsive navbar collapses into a hamburger menu on small screens.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+          <CodeBlock
+            language="html"
+            code={`<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#">BrandName</a>
 
@@ -311,15 +315,16 @@ caption="Interactive preview: switch between themes to see the same snippet rest
       </ul>
     </div>
   </div>
-</nav>`}</code>
-          </pre>
+</nav>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
           <h2>7. Practical Example – Responsive Landing Section</h2>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<div class="container my-5">
+          <CodeBlock
+            language="html"
+            code={`<div class="container my-5">
   <div class="row align-items-center">
     
     <!-- Text Content -->
@@ -343,8 +348,8 @@ caption="Interactive preview: switch between themes to see the same snippet rest
     </div>
 
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
