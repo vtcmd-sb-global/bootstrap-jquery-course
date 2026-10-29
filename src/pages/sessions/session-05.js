@@ -1,20 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CustomLayout from '@site/src/components/Layout/Layout';
+import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session05() {
-  const codeBlockStyle = {
-    backgroundColor: '#1e1e1e',
-    color: '#d4d4d4',
-    padding: '12px 16px',
-    borderRadius: '6px',
-    fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-    fontSize: '0.9rem',
-    overflowX: 'auto',
-    lineHeight: '1.5',
-    margin: '12px 0 24px 0'
-  };
-
   return (
     <Layout
       title="Session 05 — Designing Responsive Web Pages"
@@ -164,8 +153,9 @@ export default function Session05() {
             different column classes.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Mobile: full width | Tablet: half | Desktop: one-third -->
+          <CodeBlock
+              language="html"
+            code={`<!-- Mobile: full width | Tablet: half | Desktop: one-third -->
 <div class="container">
   <div class="row g-4">
     <div class="col-12 col-md-6 col-lg-4">
@@ -178,13 +168,14 @@ export default function Session05() {
       <div class="p-3 border bg-light">Column 3</div>
     </div>
   </div>
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Common Responsive Patterns</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- 1 column on mobile, 2 on tablet, 4 on desktop -->
+          <CodeBlock
+            language="html"
+            code={`<!-- 1 column on mobile, 2 on tablet, 4 on desktop -->
 <div class="col-12 col-md-6 col-lg-3">...</div>
 
 <!-- 1 column on mobile, 3 on tablet+ -->
@@ -192,8 +183,8 @@ export default function Session05() {
 
 <!-- Sidebar + Main content -->
 <div class="col-12 col-lg-8">Main Content</div>
-<div class="col-12 col-lg-4">Sidebar</div>`}</code>
-          </pre>
+<div class="col-12 col-lg-4">Sidebar</div>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
@@ -205,21 +196,23 @@ export default function Session05() {
             Control visibility of elements at different breakpoints.
           </p>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Hide on mobile, show from medium and up -->
+          <CodeBlock
+          language="html"
+            code={`<!-- Hide on mobile, show from medium and up -->
 <div class="d-none d-md-block">Visible on tablet and desktop</div>
 
 <!-- Show only on mobile -->
 <div class="d-block d-md-none">Visible only on mobile</div>
 
 <!-- Hide on large screens -->
-<div class="d-lg-none">Hidden on large desktops</div>`}</code>
-          </pre>
+<div class="d-lg-none">Hidden on large desktops</div>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Flexbox &amp; Spacing Utilities</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<!-- Responsive flex direction -->
+          <CodeBlock
+          language="html"
+            code={`<!-- Responsive flex direction -->
 <div class="d-flex flex-column flex-md-row">
   <div>Item 1</div>
   <div>Item 2</div>
@@ -228,16 +221,17 @@ export default function Session05() {
 <!-- Responsive margin / padding -->
 <div class="mt-3 mt-md-5 mb-2 mb-lg-4 p-2 p-md-4">
   Content with responsive spacing
-</div>`}</code>
-          </pre>
+</div>`}
+caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <h3>Text Alignment</h3>
 
-          <pre style={codeBlockStyle}>
-            <code>{`<p class="text-center text-md-start text-lg-end">
+          <CodeBlock
+          language="html"
+            code={`<p class="text-center text-md-start text-lg-end">
   Centered on mobile, left on tablet, right on desktop
-</p>`}</code>
-          </pre>
+</p>`}
+      caption="Interactive preview: switch between themes to see the same snippet restyled."/>
 
           <hr />
 
