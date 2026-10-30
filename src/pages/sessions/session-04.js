@@ -4,8 +4,6 @@ import CustomLayout from '@site/src/components/Layout/Layout';
 import CodeBlock from '@site/src/components/CodeBlock';
 
 export default function Session04() {
-  
-
   return (
     <Layout
       title="Session 04 — Mastering jQuery Techniques"
@@ -23,6 +21,27 @@ export default function Session04() {
               font-family: Consolas, Monaco, monospace;
               font-size: 0.9em;
             }
+            .tip-box {
+              background: #f0f7ff;
+              border-left: 4px solid #0d6efd;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
+            .warning-box {
+              background: #fff8e6;
+              border-left: 4px solid #ffc107;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
+            .note-box {
+              background: #f8f9fa;
+              border-left: 4px solid #6c757d;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
           `}</style>
 
           <h1>Session 04 — Mastering jQuery Techniques</h1>
@@ -31,7 +50,7 @@ export default function Session04() {
 
           <p>
             <strong>Focus:</strong> Learning jQuery effects and animations, advanced DOM manipulation,
-            and how to use jQuery plugins and UI components.
+            traversing the DOM, and an introduction to jQuery plugins and jQuery UI components.
           </p>
 
           <p>
@@ -49,10 +68,13 @@ export default function Session04() {
           <p>By the end of this session, you should be able to:</p>
 
           <ul>
-            <li>Illustrate jQuery effects and animations with examples</li>
-            <li>Outline DOM manipulation techniques using jQuery</li>
-            <li>Explain the process of integrating and configuring jQuery plugins</li>
-            <li>Explain the process of implementing jQuery UI components</li>
+            <li>Use hide/show, fade, and slide effects with and without duration</li>
+            <li>Create custom animations with the <code>animate()</code> method and understand chaining</li>
+            <li>Add, remove, and empty elements in the DOM</li>
+            <li>Get and set attributes and work with CSS classes</li>
+            <li>Traverse the DOM (parent, children, siblings, filtering)</li>
+            <li>Understand the basic idea of jQuery plugins and how to initialize them</li>
+            <li>Use simple jQuery UI widgets such as Datepicker and Accordion</li>
           </ul>
 
           <hr />
@@ -60,14 +82,15 @@ export default function Session04() {
           <h2>1. jQuery Effects and Animations</h2>
 
           <p>
-            jQuery offers a variety of methods for creating animations and effects.
-            These methods enhance user interaction and the overall experience on a web page.
+            jQuery provides a set of ready-made methods that make it easy to show, hide,
+            fade, and slide elements. These effects improve the feel of a page when used
+            carefully (not excessively).
           </p>
 
           <h3>Hiding and Showing Elements</h3>
 
           <CodeBlock
-          language="jquery"
+            language="javascript"
             code={`// Hide
 $("#box").hide();           // instant
 $("#box").hide(500);        // 500 milliseconds
@@ -81,44 +104,65 @@ $("#box").show(800);
 // Toggle (hide if visible, show if hidden)
 $("#box").toggle();
 $("#box").toggle(600);`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Fading Effects</h3>
 
           <CodeBlock
-          language="jquery"
-            code={`$("#box").fadeIn();         // fade in
-$("#box").fadeOut();        // fade out
-$("#box").fadeToggle();     // toggle fade
+            language="javascript"
+            code={`$("#box").fadeIn();          // fade in
+$("#box").fadeOut();         // fade out
+$("#box").fadeToggle();      // toggle fade
 $("#box").fadeTo(1000, 0.4); // fade to 40% opacity over 1 second`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Sliding Effects</h3>
 
+          <p>
+            Sliding is especially useful for accordion-style panels and mobile menus.
+          </p>
+
           <CodeBlock
-          language="jquery"
-            code={`$("#panel").slideDown();    // slide down
-$("#panel").slideUp();      // slide up
-$("#panel").slideToggle();  // toggle slide`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+            language="javascript"
+            code={`$("#panel").slideDown();     // slide down
+$("#panel").slideUp();       // slide up
+$("#panel").slideToggle();   // toggle slide`}
+          />
 
           <h3>Custom Animation – animate()</h3>
 
+          <p>
+            The <code>animate()</code> method lets you change numeric CSS properties over time
+            (left, top, width, height, opacity, etc.).
+          </p>
+
           <CodeBlock
-            language="jquery"
+            language="javascript"
             code={`$("#box").animate({
-  left: '250px',
-  opacity: '0.5',
-  height: '150px',
-  width: '150px'
+  left: "250px",
+  opacity: "0.5",
+  height: "150px",
+  width: "150px"
 }, 1000);   // duration in milliseconds
 
-// Multiple animations (queued)
+// Multiple animations are queued automatically
 $("#box")
-  .animate({ left: '200px' }, 800)
-  .animate({ top: '100px' }, 800)
+  .animate({ left: "200px" }, 800)
+  .animate({ top: "100px" }, 800)
   .animate({ opacity: 0.3 }, 500);`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
+
+          <div className="tip-box">
+            <strong>Tip:</strong> You can only animate properties that have numeric values
+            (width, height, left, top, opacity, margin, padding, etc.). You cannot animate
+            colors with the core <code>animate()</code> method unless you use an extra plugin.
+          </div>
+
+          <div className="warning-box">
+            <strong>Common problem:</strong> If the user clicks a button many times quickly,
+            animations can queue up and keep running. Use <code>.stop(true, true)</code>
+            before starting a new animation when needed.
+          </div>
 
           <hr />
 
@@ -127,15 +171,15 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <h3>Creating and Adding Elements</h3>
 
           <CodeBlock
-            language="jquery"
+            language="javascript"
             code={`// Create a new element
 let newPara = $("<p>This is a new paragraph</p>");
 
-// Append (inside, at the end)
+// Append (inside the element, at the end)
 $("#container").append(newPara);
 $("#container").append("<p>Another paragraph</p>");
 
-// Prepend (inside, at the beginning)
+// Prepend (inside the element, at the beginning)
 $("#container").prepend("<h3>New Heading</h3>");
 
 // After (outside, after the element)
@@ -143,113 +187,121 @@ $("#box").after("<p>Inserted after the box</p>");
 
 // Before (outside, before the element)
 $("#box").before("<p>Inserted before the box</p>");`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Removing Elements</h3>
 
           <CodeBlock
-            language="jquery"
-            code={`// Remove the element itself
+            language="javascript"
+            code={`// Remove the element itself (and its data/events)
 $("#box").remove();
 
-// Remove only the children (keep the element)
+// Remove only the children (keep the container)
 $("#container").empty();
 
 // Remove elements that match a filter
 $("p").remove(".highlight");`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Working with Attributes</h3>
 
           <CodeBlock
-            language="jquery"
+            language="javascript"
             code={`// Get attribute
 let src = $("img").attr("src");
 
-// Set attribute
+// Set one attribute
 $("img").attr("src", "new-image.jpg");
 $("a").attr("href", "https://example.com");
 
-// Set multiple attributes
+// Set multiple attributes at once
 $("img").attr({
   src: "photo.jpg",
   alt: "My Photo",
   title: "Profile Picture"
 });
 
-// Remove attribute
+// Remove an attribute
 $("img").removeAttr("title");`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Working with Classes</h3>
 
           <CodeBlock
-            language="jquery"
+            language="javascript"
             code={`$("#box").addClass("active highlight");
 $("#box").removeClass("highlight");
 $("#box").toggleClass("active");
 
-// Check if element has a class
+// Check if an element has a class
 if ($("#box").hasClass("active")) {
   console.log("Box is active");
 }`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
           <h2>3. Traversing the DOM</h2>
 
           <p>
-            jQuery makes it easy to move through the DOM tree.
+            Traversing means moving from one element to related elements (parent, children,
+            siblings, etc.). jQuery makes this very readable.
           </p>
 
           <CodeBlock
-            language="jquery"
+            language="javascript"
             code={`// Parent
-$("#child").parent();           // direct parent
-$("#child").parents();          // all ancestors
+$("#child").parent();            // direct parent
+$("#child").parents();           // all ancestors
 $("#child").parentsUntil("div");
 
-// Children
-$("#parent").children();        // direct children
-$("#parent").find("span");      // all descendants that match
+// Children & descendants
+$("#parent").children();         // direct children only
+$("#parent").find("span");       // all descendants that match
 
 // Siblings
-$("#item").siblings();          // all siblings
-$("#item").next();              // next sibling
-$("#item").prev();              // previous sibling
+$("#item").siblings();           // all siblings
+$("#item").next();               // next sibling
+$("#item").prev();               // previous sibling
 $("#item").nextAll();
 $("#item").prevAll();
 
-// Filtering
+// Filtering a selection
 $("p").first();
 $("p").last();
-$("p").eq(2);                   // third paragraph (index starts at 0)
+$("p").eq(2);                    // third paragraph (index starts at 0)
 $("p").filter(".intro");
 $("p").not(".intro");`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
+
+          <div className="tip-box">
+            <strong>Tip:</strong> Chaining is one of jQuery’s strengths. You can write:
+            <br />
+            <code>$("#list").find("li").first().addClass("highlight");</code>
+          </div>
 
           <hr />
 
           <h2>4. jQuery Plugins</h2>
 
           <p>
-            A <strong>plugin</strong> is a piece of code that extends jQuery’s functionality.
-            Thousands of free plugins are available for image sliders, lightboxes, form validation, etc.
+            A <strong>plugin</strong> is a piece of code that extends jQuery with new methods.
+            There are thousands of free plugins for image sliders, lightboxes, form validation,
+            date pickers, tables, and more.
           </p>
 
-          <h3>How to Use a Plugin (General Steps)</h3>
+          <h3>General Steps to Use a Plugin</h3>
 
           <ol>
             <li>Include jQuery first</li>
-            <li>Include the plugin’s CSS (if any)</li>
+            <li>Include the plugin’s CSS file (if it has one)</li>
             <li>Include the plugin’s JavaScript file</li>
-            <li>Initialize the plugin on the desired element</li>
+            <li>Initialize the plugin on the desired element(s)</li>
           </ol>
 
           <CodeBlock
-            language="jquery"
-            code={`<!-- Example structure -->
+            language="html"
+            code={`<!-- Typical structure -->
 <script src="jquery.min.js"></script>
 <link rel="stylesheet" href="plugin.css">
 <script src="plugin.min.js"></script>
@@ -263,7 +315,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
     });
   });
 </script>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Popular Plugin Categories</h3>
 
@@ -273,16 +325,22 @@ caption="Interactive preview: switch between themes to see the same snippet rest
             <li>Form validation</li>
             <li>Date pickers</li>
             <li>Tooltips and popovers</li>
-            <li>Tables (sorting, filtering, pagination)</li>
+            <li>Data tables (sorting, filtering, pagination)</li>
           </ul>
+
+          <div className="note-box">
+            <strong>Note:</strong> Always check that the plugin is compatible with the version
+            of jQuery you are using. Many older plugins only work with jQuery 1.x or 2.x.
+          </div>
 
           <hr />
 
           <h2>5. Introduction to jQuery UI</h2>
 
           <p>
-            <strong>jQuery UI</strong> is an official collection of user interface interactions,
-            effects, widgets, and themes built on top of jQuery.
+            <strong>jQuery UI</strong> is an official set of user-interface interactions,
+            effects, widgets, and themes built on top of jQuery. It is useful when you need
+            ready-made components such as date pickers, accordions, dialogs, and sliders.
           </p>
 
           <h3>Common jQuery UI Widgets</h3>
@@ -300,7 +358,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <h3>Basic Example – Datepicker</h3>
 
           <CodeBlock
-            language="jquery"
+            language="html"
             code={`<!-- Include jQuery + jQuery UI -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -313,12 +371,12 @@ caption="Interactive preview: switch between themes to see the same snippet rest
     $("#datepicker").datepicker();
   });
 </script>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Basic Example – Accordion</h3>
 
           <CodeBlock
-            language="jquery"
+            language="html"
             code={`<div id="accordion">
   <h3>Section 1</h3>
   <div>
@@ -339,11 +397,16 @@ caption="Interactive preview: switch between themes to see the same snippet rest
     $("#accordion").accordion();
   });
 </script>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
           <h2>6. Practical Example – Animated FAQ + Theme Toggle</h2>
+
+          <p>
+            This example combines sliding effects, class toggling, and event handling
+            into a small interactive FAQ section.
+          </p>
 
           <CodeBlock
             language="html"
@@ -351,15 +414,17 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>jQuery Effects Practice</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
-    .faq-item { border: 1px solid #ccc; margin-bottom: 10px; }
+    .faq-item { border: 1px solid #ccc; margin-bottom: 10px; border-radius: 6px; overflow: hidden; }
     .faq-question {
-      background: #007bff;
+      background: #0d6efd;
       color: white;
-      padding: 12px;
+      padding: 12px 16px;
       cursor: pointer;
+      margin: 0;
     }
     .faq-answer {
       padding: 15px;
@@ -405,7 +470,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
   <script>
     $(function() {
 
-      // FAQ accordion effect
+      // FAQ accordion effect – only one open at a time
       $(".faq-question").click(function() {
         // Close other answers
         $(".faq-answer").not($(this).next()).slideUp();
@@ -422,23 +487,24 @@ caption="Interactive preview: switch between themes to see the same snippet rest
   </script>
 </body>
 </html>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
           <h2>7. Best Practices</h2>
 
           <ul>
-            <li>Always chain methods when possible to keep code clean</li>
-            <li>Use <code>stop()</code> before animations if the user can trigger them multiple times quickly</li>
-            <li>Prefer CSS transitions for simple hover effects; use jQuery for more complex logic</li>
-            <li>Load jQuery UI only when you actually need its widgets</li>
-            <li>Keep animations short (200–600 ms) so the interface feels responsive</li>
+            <li>Chain methods when possible to keep code clean and readable</li>
+            <li>Use <code>.stop(true, true)</code> before animations if the user can trigger them rapidly</li>
+            <li>Prefer CSS transitions for simple hover effects; use jQuery for more complex or sequential logic</li>
+            <li>Load jQuery UI only when you actually need its widgets (it adds extra weight)</li>
+            <li>Keep animation durations short (200–600 ms) so the interface feels responsive</li>
+            <li>Always place jQuery and plugin scripts before your own initialization code</li>
           </ul>
 
           <hr />
 
-          <h2>Session 04 Exercise</h2>
+          <h2>Session 04 Exercises</h2>
 
           <p><strong>Task 1 – Effects Practice</strong></p>
           <ol>
@@ -450,25 +516,26 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <ol>
             <li>Create a box that moves from left to right and changes size when a button is clicked.</li>
             <li>Use the <code>animate()</code> method.</li>
+            <li>Bonus: make a second animation that returns the box to its original position.</li>
           </ol>
 
           <p><strong>Task 3 – DOM Manipulation</strong></p>
           <ol>
-            <li>Create an empty list (<code>&lt;ul&gt;</code>).</li>
+            <li>Create an empty list (<code>{'<ul>'}</code>).</li>
             <li>Add a text box and a button “Add Item”.</li>
-            <li>When the button is clicked, append a new <code>&lt;li&gt;</code> with the entered text.</li>
-            <li>Add a second button that removes the last item.</li>
+            <li>When the button is clicked, append a new <code>{'<li>'}</code> with the entered text.</li>
+            <li>Add a second button that removes the last item from the list.</li>
           </ol>
 
           <p><strong>Task 4 – Simple Accordion</strong></p>
           <ol>
-            <li>Create three questions and answers (like the practical example).</li>
-            <li>Only one answer should be open at a time (slide up the others).</li>
+            <li>Create three questions and answers (similar to the practical example).</li>
+            <li>Only one answer should be open at a time (slide up the others when a new one is opened).</li>
           </ol>
 
           <hr />
 
-          <h2>Challenge</h2>
+          <h2>Challenge Project</h2>
 
           <p>
             Build a small interactive image gallery:
@@ -476,9 +543,13 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <ul>
             <li>Show 4–6 thumbnail images</li>
-            <li>When a thumbnail is clicked, the main large image fades out, changes source, and fades in</li>
+            <li>When a thumbnail is clicked, the main large image fades out, changes its source, and fades in again</li>
             <li>Add a “Shuffle” button that randomly changes the order of the thumbnails using jQuery</li>
           </ul>
+
+          <p>
+            Bonus: Add previous / next buttons that also change the main image with a fade effect.
+          </p>
 
           <hr />
 
@@ -490,6 +561,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
             <li>How do you add a new element at the beginning of a container?</li>
             <li>What does <code>$(element).empty()</code> do?</li>
             <li>Name two widgets provided by jQuery UI.</li>
+            <li>Why might you call <code>.stop()</code> before starting a new animation?</li>
           </ol>
 
           <hr />
@@ -502,10 +574,11 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <ul>
             <li>How to use hide/show, fade, and slide effects</li>
-            <li>How to create custom animations with <code>animate()</code></li>
+            <li>How to create custom animations with <code>animate()</code> and method chaining</li>
             <li>Advanced DOM manipulation (add, remove, change attributes and classes)</li>
             <li>How to traverse the DOM (parent, children, siblings, filtering)</li>
-            <li>The basic idea of jQuery plugins and jQuery UI widgets</li>
+            <li>The basic idea of jQuery plugins and how to initialize them</li>
+            <li>Simple jQuery UI widgets (Datepicker and Accordion)</li>
           </ul>
 
           <p>
