@@ -233,9 +233,9 @@ export default function Session01() {
           />
 
           <div className="tip-box">
-            <strong>Important:</strong> Always place the CSS <code><link></code> inside the
-            <code><head></code> and the JavaScript <code><script></code> just before the
-            closing <code></body></code> tag. This is the standard and most reliable order.
+            <strong>Important:</strong> Always place the CSS <code>{'<link>'}</code> inside the
+            <code>{'<head>'}</code> and the JavaScript <code>{'<script>'}</code> just before the
+            closing <code>{'</body>'}</code> tag. This is the standard and most reliable order.
           </div>
 
           <h3>Method 2: Local Installation (Download)</h3>
@@ -355,7 +355,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';`}
 
           <div className="warning-box">
             <strong>Common mistake:</strong> Forgetting the viewport meta tag. Always include it
-            as the second meta tag in the <code><head></code>.
+            as the second meta tag in the <code>{'<head>'}</code>.
           </div>
 
           <hr />
