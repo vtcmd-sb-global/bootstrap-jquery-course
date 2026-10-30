@@ -21,6 +21,27 @@ export default function Session05() {
               font-family: Consolas, Monaco, monospace;
               font-size: 0.9em;
             }
+            .tip-box {
+              background: #f0f7ff;
+              border-left: 4px solid #0d6efd;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
+            .warning-box {
+              background: #fff8e6;
+              border-left: 4px solid #ffc107;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
+            .note-box {
+              background: #f8f9fa;
+              border-left: 4px solid #6c757d;
+              padding: 12px 16px;
+              margin: 16px 0;
+              border-radius: 0 6px 6px 0;
+            }
           `}</style>
 
           <h1>Session 05 — Designing Responsive Web Pages</h1>
@@ -48,10 +69,12 @@ export default function Session05() {
           <p>By the end of this session, you should be able to:</p>
 
           <ul>
-            <li>List responsive design principles</li>
-            <li>Explain the process of applying Bootstrap’s responsive utilities</li>
-            <li>Describe the implementation of grid systems to create responsive layouts</li>
-            <li>Explain methods to integrate responsive media for optimal viewing</li>
+            <li>Explain the core principles of responsive web design</li>
+            <li>Apply Bootstrap’s responsive grid classes to create multi-breakpoint layouts</li>
+            <li>Use display, flex, spacing, and text utilities that change at different screen sizes</li>
+            <li>Make images and embedded media (videos, maps) scale correctly</li>
+            <li>Build a mobile-first navbar and a responsive hero section</li>
+            <li>Test layouts properly with browser DevTools</li>
           </ul>
 
           <hr />
@@ -59,23 +82,18 @@ export default function Session05() {
           <h2>1. Responsive Design Principles</h2>
 
           <p>
-            Responsive Web design ensures that websites adapt to various devices —
-            mobile phones, tablets, laptops, and large desktops — with different screen
-            sizes, browsers, and operating systems.
-          </p>
-
-          <p>
-            Instead of creating separate websites for mobile and desktop, we create
-            <strong>one flexible layout</strong> that responds to the screen size.
+            Responsive web design means creating <strong>one flexible layout</strong> that adapts
+            to different screen sizes (phones, tablets, laptops, large desktops) instead of
+            building separate websites for each device.
           </p>
 
           <h3>Core Principles</h3>
 
           <ul>
-            <li><strong>Fluid Grids</strong> — Use relative units (%, fr, etc.) instead of fixed pixels</li>
-            <li><strong>Flexible Images</strong> — Images should scale within their containers</li>
-            <li><strong>Media Queries</strong> — Apply different CSS rules based on screen width</li>
-            <li><strong>Mobile-First Approach</strong> — Design for mobile first, then enhance for larger screens</li>
+            <li><strong>Fluid grids</strong> — Prefer relative units (%, viewport units, flex/grid) over fixed pixels</li>
+            <li><strong>Flexible images & media</strong> — Images and videos should scale within their containers</li>
+            <li><strong>Media queries / breakpoints</strong> — Apply different styles at different screen widths</li>
+            <li><strong>Mobile-first approach</strong> — Design for the smallest screens first, then enhance for larger ones</li>
           </ul>
 
           <h3>Why Responsive Design Matters</h3>
@@ -83,9 +101,15 @@ export default function Session05() {
           <ul>
             <li>Better user experience on every device</li>
             <li>Improved SEO (Google prefers mobile-friendly sites)</li>
-            <li>One codebase instead of multiple versions</li>
-            <li>Higher engagement and lower bounce rate</li>
+            <li>One codebase instead of multiple versions to maintain</li>
+            <li>Higher engagement and lower bounce rates</li>
           </ul>
+
+          <div className="tip-box">
+            <strong>Tip:</strong> Bootstrap is built mobile-first. When you write
+            <code>col-12 col-md-6</code>, the <code>col-12</code> applies to the smallest screens
+            and the <code>col-md-6</code> only kicks in from the medium breakpoint upward.
+          </div>
 
           <hr />
 
@@ -108,7 +132,7 @@ export default function Session05() {
               <tr>
                 <td>Extra small</td>
                 <td><code>none</code> / <code>col-</code></td>
-                <td>&lt; 576px</td>
+                <td>{'< 576px'}</td>
                 <td>Mobile phones</td>
               </tr>
               <tr>
@@ -149,12 +173,12 @@ export default function Session05() {
           <h2>3. Responsive Grid System in Practice</h2>
 
           <p>
-            The most powerful tool for responsive layouts is the combination of
-            different column classes.
+            The most powerful tool for responsive layouts is combining different column classes
+            so the same content rearranges itself at each breakpoint.
           </p>
 
           <CodeBlock
-              language="html"
+            language="html"
             code={`<!-- Mobile: full width | Tablet: half | Desktop: one-third -->
 <div class="container">
   <div class="row g-4">
@@ -169,7 +193,7 @@ export default function Session05() {
     </div>
   </div>
 </div>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Common Responsive Patterns</h3>
 
@@ -178,13 +202,19 @@ caption="Interactive preview: switch between themes to see the same snippet rest
             code={`<!-- 1 column on mobile, 2 on tablet, 4 on desktop -->
 <div class="col-12 col-md-6 col-lg-3">...</div>
 
-<!-- 1 column on mobile, 3 on tablet+ -->
+<!-- 1 column on mobile, 3 on tablet and up -->
 <div class="col-12 col-md-4">...</div>
 
 <!-- Sidebar + Main content -->
 <div class="col-12 col-lg-8">Main Content</div>
 <div class="col-12 col-lg-4">Sidebar</div>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
+
+          <div className="tip-box">
+            <strong>Practice tip:</strong> Open DevTools (F12) → Toggle device toolbar and
+            slowly resize the viewport. Watch how the columns reflow. This is the fastest way
+            to internalize breakpoints.
+          </div>
 
           <hr />
 
@@ -193,27 +223,27 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <h3>Display Utilities</h3>
 
           <p>
-            Control visibility of elements at different breakpoints.
+            Control the visibility of elements at different breakpoints without writing media queries.
           </p>
 
           <CodeBlock
-          language="html"
+            language="html"
             code={`<!-- Hide on mobile, show from medium and up -->
 <div class="d-none d-md-block">Visible on tablet and desktop</div>
 
 <!-- Show only on mobile -->
 <div class="d-block d-md-none">Visible only on mobile</div>
 
-<!-- Hide on large screens -->
+<!-- Hide on large screens and up -->
 <div class="d-lg-none">Hidden on large desktops</div>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
-          <h3>Flexbox &amp; Spacing Utilities</h3>
+          <h3>Flexbox & Spacing Utilities</h3>
 
           <CodeBlock
-          language="html"
-            code={`<!-- Responsive flex direction -->
-<div class="d-flex flex-column flex-md-row">
+            language="html"
+            code={`<!-- Stack vertically on mobile, row on tablet+ -->
+<div class="d-flex flex-column flex-md-row gap-3">
   <div>Item 1</div>
   <div>Item 2</div>
 </div>
@@ -222,22 +252,26 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 <div class="mt-3 mt-md-5 mb-2 mb-lg-4 p-2 p-md-4">
   Content with responsive spacing
 </div>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Text Alignment</h3>
 
           <CodeBlock
-          language="html"
+            language="html"
             code={`<p class="text-center text-md-start text-lg-end">
   Centered on mobile, left on tablet, right on desktop
 </p>`}
-      caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
           <h2>5. Responsive Images and Media</h2>
 
           <h3>Responsive Images</h3>
+
+          <p>
+            Always add the <code>img-fluid</code> class so images never overflow their container.
+          </p>
 
           <CodeBlock
             language="html"
@@ -249,25 +283,34 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
 <!-- Thumbnail style -->
 <img src="photo.jpg" class="img-thumbnail" alt="...">`}
-          caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <h3>Responsive Embeds (Videos / Maps)</h3>
+
+          <p>
+            Bootstrap’s <code>ratio</code> helper keeps iframes (YouTube, Google Maps, etc.)
+            at a fixed aspect ratio while remaining fully responsive.
+          </p>
 
           <CodeBlock
             language="html"
             code={`<div class="ratio ratio-16x9">
-  <iframe 
-    src="https://www.youtube.com/embed/VIDEO_ID" 
-    title="YouTube video" 
+  <iframe
+    src="https://www.youtube.com/embed/VIDEO_ID"
+    title="YouTube video"
     allowfullscreen>
   </iframe>
 </div>
 
-<!-- Other ratios available -->
-<!-- ratio-1x1, ratio-4x3, ratio-21x9 -->`}
-          caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+<!-- Other useful ratios: ratio-1x1, ratio-4x3, ratio-21x9 -->`}
+          />
 
           <h3>Picture Element (Art Direction)</h3>
+
+          <p>
+            When you need different image crops or resolutions for different screen sizes,
+            use the HTML <code>{'<picture>'}</code> element.
+          </p>
 
           <CodeBlock
             language="html"
@@ -276,14 +319,15 @@ caption="Interactive preview: switch between themes to see the same snippet rest
   <source media="(min-width: 768px)" srcset="medium.jpg">
   <img src="small.jpg" class="img-fluid" alt="Responsive image">
 </picture>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
-          <h2>6. Mobile-First Navbar (Advanced)</h2>
+          <h2>6. Mobile-First Navbar</h2>
 
           <p>
-            A good responsive navbar collapses into a hamburger menu on small screens.
+            A good responsive navbar collapses into a hamburger menu on small screens and
+            expands into a horizontal menu on larger screens.
           </p>
 
           <CodeBlock
@@ -292,9 +336,12 @@ caption="Interactive preview: switch between themes to see the same snippet rest
   <div class="container">
     <a class="navbar-brand" href="#">BrandName</a>
 
-    <button class="navbar-toggler" type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#mainNavbar">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -316,17 +363,27 @@ caption="Interactive preview: switch between themes to see the same snippet rest
     </div>
   </div>
 </nav>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
+
+          <div className="note-box">
+            <strong>Note:</strong> Remember to include Bootstrap’s JavaScript bundle so the
+            navbar toggler works. Without it the hamburger button will not expand the menu.
+          </div>
 
           <hr />
 
           <h2>7. Practical Example – Responsive Landing Section</h2>
 
+          <p>
+            This hero section shows text and an image side-by-side on desktop.
+            On mobile the image moves above the text using order classes.
+          </p>
+
           <CodeBlock
             language="html"
             code={`<div class="container my-5">
   <div class="row align-items-center">
-    
+
     <!-- Text Content -->
     <div class="col-12 col-lg-6 mb-4 mb-lg-0 order-2 order-lg-1">
       <h1 class="display-5 fw-bold">Build Beautiful Responsive Websites</h1>
@@ -342,14 +399,14 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
     <!-- Image -->
     <div class="col-12 col-lg-6 order-1 order-lg-2">
-      <img src="https://via.placeholder.com/600x400" 
-           class="img-fluid rounded shadow" 
+      <img src="https://via.placeholder.com/600x400"
+           class="img-fluid rounded shadow"
            alt="Hero image">
     </div>
 
   </div>
 </div>`}
-caption="Interactive preview: switch between themes to see the same snippet restyled."/>
+          />
 
           <hr />
 
@@ -360,11 +417,17 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           </p>
 
           <ul>
-            <li>Open DevTools → Toggle Device Toolbar (Ctrl + Shift + M)</li>
-            <li>Test common sizes: 375px (iPhone), 768px (iPad), 1280px (Laptop)</li>
+            <li>Open DevTools → Toggle Device Toolbar (Ctrl + Shift + M / Cmd + Shift + M)</li>
+            <li>Test common widths: 375px (iPhone), 768px (iPad), 1280px (Laptop)</li>
             <li>Check both portrait and landscape orientations</li>
-            <li>Verify that text remains readable and buttons are easy to tap</li>
+            <li>Verify that text remains readable and buttons are easy to tap (≥ 44px tall)</li>
+            <li>Look for horizontal scrollbars — they almost always indicate a problem</li>
           </ul>
+
+          <div className="warning-box">
+            <strong>Common mistake:</strong> Testing only at desktop width. Many layout bugs
+            only appear on real phone sizes. Always check at least three widths.
+          </div>
 
           <hr />
 
@@ -373,15 +436,16 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <ul>
             <li>Always start with the mobile layout first (mobile-first)</li>
             <li>Use <code>col-12</code> as the base and then add larger breakpoints</li>
-            <li>Prefer Bootstrap utility classes over custom media queries when possible</li>
-            <li>Make sure touch targets (buttons/links) are large enough on mobile (≥ 44px)</li>
-            <li>Test real devices whenever possible, not only the emulator</li>
+            <li>Prefer Bootstrap utility classes over writing your own media queries when possible</li>
+            <li>Make sure touch targets (buttons/links) are large enough on mobile (≥ 44 × 44 px)</li>
+            <li>Test on real devices whenever possible, not only the emulator</li>
             <li>Use <code>img-fluid</code> on almost every image</li>
+            <li>Keep the most important content higher in the HTML so it appears first on mobile</li>
           </ul>
 
           <hr />
 
-          <h2>Session 05 Exercise</h2>
+          <h2>Session 05 Exercises</h2>
 
           <p><strong>Task 1 – Responsive Grid</strong></p>
           <ol>
@@ -402,7 +466,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
           <ol>
             <li>Build a hero section with text on one side and an image on the other.</li>
             <li>On mobile the image should appear on top of the text.</li>
-            <li>On desktop the text should be on the left and image on the right.</li>
+            <li>On desktop the text should be on the left and the image on the right.</li>
           </ol>
 
           <p><strong>Task 4 – Responsive Video</strong></p>
@@ -412,7 +476,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <hr />
 
-          <h2>Challenge</h2>
+          <h2>Challenge Project</h2>
 
           <p>
             Create a complete responsive multi-section page that includes:
@@ -440,6 +504,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
             <li>How do you hide an element on medium screens and larger?</li>
             <li>What is the purpose of the <code>ratio</code> class in Bootstrap?</li>
             <li>Name three Bootstrap breakpoints.</li>
+            <li>Why is it important to test at multiple viewport widths?</li>
           </ol>
 
           <hr />
