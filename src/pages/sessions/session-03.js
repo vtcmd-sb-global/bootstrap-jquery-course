@@ -272,7 +272,7 @@ $(function() {
               <tr>
                 <td>Element (tag)</td>
                 <td><code>$("p")</code></td>
-                <td>Selects all <p> elements</td>
+                <td>Selects all {'<p>'} elements</td>
               </tr>
               <tr>
                 <td>ID</td>
