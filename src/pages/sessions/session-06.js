@@ -103,7 +103,7 @@ caption="Interactive preview: switch between themes to see the same snippet rest
 
           <CodeBlock
             language="jquery"
-            code{`$(".nav-link").click(function(e) {
+            code={`$(".nav-link").click(function(e) {
   e.preventDefault();
   let target = $(this).attr("href");
   $("html, body").animate({
